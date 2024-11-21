@@ -1,33 +1,3 @@
-// const express = require('express');
-// const axios = require('axios');
-// co.30 -4.30
-// const app = express();
-
-// app.use(cors()); // Enable all CORS requests
-
-// app.get('/', (req, res) => {
-//   res.send('Welcome to the Directions API!');
-// });
-
-// app.get('/directions', async (req, res) => {
-//   try {
-//     const response = await axios.get('https://maps.googleapis.com/maps/api/directions/json', {
-//       params: {
-//         origin: req.query.origin,
-//         destination: req.query.destination,
-//         key: 'AIzaSyBB6QR9xfg19VREe2nswPgWiEQRy4h-wh0'
-//       }
-//     });
-//     res.json(response.data);
-//   } catch (error) {
-//     res.status(500).send(error.toString());
-//   }
-// });
-
-// app.listen(5000, () => {
-//   console.log('Server running on port 5000');
-// });
-
 import express from "express";
 import axios from "axios";
 import cors from "cors";
