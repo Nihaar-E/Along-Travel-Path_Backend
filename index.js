@@ -1,7 +1,6 @@
 // const express = require('express');
 // const axios = require('axios');
-// const cors = require('cors'); // Import cors
-
+// co.30 -4.30
 // const app = express();
 
 // app.use(cors()); // Enable all CORS requests
@@ -29,14 +28,15 @@
 //   console.log('Server running on port 5000');
 // });
 
-const express = require("express");
-const axios = require("axios");
-const cors = require("cors"); // Import cors
-
+import express from "express";
+import axios from "axios";
+import cors from "cors";
+import dotenv from "dotenv";
+dotenv.config();
 const app = express();
 app.use(
   cors({
-    origin: "http://localhost:3000", // Specify your frontend's URL here
+    origin: "http://localhost:3000",
   })
 );
 
@@ -52,7 +52,7 @@ app.get("/directions", async (req, res) => {
         params: {
           origin: req.query.origin,
           destination: req.query.destination,
-          key: "AIzaSyBB6QR9xfg19VREe2nswPgWiEQRy4h-wh0",
+          key: process.env.GOOGLE_API_KEY,
         },
       }
     );
@@ -78,8 +78,7 @@ app.get("/weather", async (req, res) => {
         params: {
           lat: lat,
           lon: lon,
-          appid: "54e5542f2270719809f3ce03f04e5b61",
-          //b45718f62c24fd0515834f0e7f0dae58
+          appid: process.env.WEATHER_API_KEY,
           // Use the API key from environment variables
           units: "metric", // You can change it to 'imperial' if you want Fahrenheit
         },
